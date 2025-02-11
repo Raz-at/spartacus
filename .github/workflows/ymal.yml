@@ -27,11 +27,11 @@ jobs:
 
       - name: Run test with pytest
         run: |
-          pytest --maxfail=1 --disable-warnings -q
+          pytest --maxfail=1 --disable-warnings 
 
       - name: Search for console.log in deployment.js
         run: |
-            if grep -q "This is deployment" deployment.js; then
+            if grep -q "This is deployment" js/deployment.js; then
               echo "Found console.log"
             else
               echo "Failed to find console.log"
