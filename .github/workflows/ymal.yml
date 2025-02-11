@@ -29,13 +29,14 @@ jobs:
         run: |
           pytest --maxfail=1 --disable-warnings -q
 
-      - name : Search using GREP
+      - name: Search for console.log in deployment.js
         run: |
-          if grep -q "This is deployment" deployment.js; then
-            echo "Found"
-          else
-            echo "Failed to found"
-            exit 1
+            if grep -q "This is deployment" deployment.js; then
+              echo "Found console.log"
+            else
+              echo "Failed to find console.log"
+              exit 1  # Exit with a non-zero code to fail the step if not found
+            fi
           
 
   deploy:
