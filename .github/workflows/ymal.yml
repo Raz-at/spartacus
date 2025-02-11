@@ -29,6 +29,15 @@ jobs:
         run: |
           pytest --maxfail=1 --disable-warnings -q
 
+      - name : Search using GREP
+        run: |
+          if grep -q "This is deployment" deployment.js; then
+            echo "Found"
+          else
+            echo "Failed to found"
+            exit 1
+          fi
+
   deploy:
     needs: test
     runs-on: ubuntu-latest
