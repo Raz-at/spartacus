@@ -22,9 +22,9 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
-        
-      - name: Replace production.js with deployment.js
-        run: sed -i 's/production.js/deployment.js/g' index.html
+
+      - name: Replace deployment.js with production.js
+        run: sed -i 's/deployment.js/production.js/g' index.html
 
       - name: Deploy to Github Pages
         uses: peaceiris/actions-gh-pages@v3  
